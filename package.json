@@ -1,7 +1,7 @@
 {
   "name": "ankbot",
   "version": "1.0.0",
-  "description": "",
+  "description": "The bot used on the official Ålskål Discord server.",
   "engines": {
     "node": "7.5.0"
   },
@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "discord.js": "^11.0.0",
-    "jsonfile": "^2.4.0"
   },
-  "author": "",
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/praneetsharma/ClearMessagesBot-Discord"
+  },  
   "license": "ISC"
 }
