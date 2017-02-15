@@ -10,11 +10,14 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "discord.js": "^11.0.0",
+    "discord.js": 11.0.x"
   },
-    "repository": {
+  "repository": {
     "type": "git",
-    "url": "https://github.com/praneetsharma/ClearMessagesBot-Discord"
-  },  
-  "license": "ISC"
+    "url": "https://https://github.com/alskalmusic/ankbot"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "license": "MIT"
 }
