@@ -48,90 +48,44 @@ bot.on('ready', () => {
 //Welcome member.
 bot.on('guildMemberAdd', (member) => {
    var guild = member.guild;
-   guild.defaultChannel.sendEmbed(new Discord.RichEmbed().addField('Välkommen ' + member.user.toString() + '!', 'Skriv !sub för att få subscriber permissions. \nSkriv !rules för att se våra regler.').setColor(0xCC0000));
+   guild.defaultChannel.sendEmbed(new Discord.RichEmbed().addField('Välkommen till Ålskåls Discord-server!', member.user.toString() + '\nSkriv !sub för att få subscriber permissions. \nSkriv !rules för att se våra regler.').setColor(0xCC0000));
    });
 //Say goodbye to member.
 bot.on('guildMemberRemove', (member) => {
    var guild = member.guild;
-   guild.defaultChannel.sendEmbed(new Discord.RichEmbed().addField('Hejdå ' + member.user.toString() + '!', 'Hoppas du trivdes.').setColor(0xCC0000));
+   guild.defaultChannel.sendEmbed(new Discord.RichEmbed().addField('Hejdå!', member.user.toString() + '\nHoppas du trivdes.').setColor(0xCC0000));
    });
 //Profanity filter.
-bot.on('message', (message) => {
-   if (message.content.toLowerCase().includes("neger"))
-   {
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote n-ger.')
-   }else if (message.content.toLowerCase().includes("hora")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote h#ra.')
-   }else if (message.content.toLowerCase().includes("kuk")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote k#k.')
-   }else if (message.content.toLowerCase().includes("fitt")){
-     message.delete();
-     message.channel.sendMessage(message.author.toString() +' wrote f#tt.')
-     message.author.sendMessage(profanity_msg);
-   }else if (message.content.toLowerCase().includes("slyn")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote sl#n.')
-   }else if (message.content.toLowerCase().includes("slamp")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote sl#mp.')
-   }else if (message.content.toLowerCase().includes("bög")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote b#g.')
-   }else if (message.content.toLowerCase().includes("lesb")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote l#sb.')
-   }else if (message.content.toLowerCase().includes("svarting")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote sv#rting.')
-   }else if (message.content.toLowerCase().includes("blatte")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote bl#tte.')
-   }else if (message.content.toLowerCase().includes("mongolid")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote m#ng#lid.')
-   }else if (message.content.toLowerCase().includes("nigger")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote n#gger.')
-   }else if (message.content.toLowerCase().includes("kicki danielsson")){
-     message.delete();
-     message.channel.sendMessage("DU GER MIG BRA VIBRATIONER!")
-     message.channel.sendMessage(message.author.toString() +' wrote KICKI DANIELSSON <333.')
-   }else if (message.content.toLowerCase().includes("fag")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote f#g.')
-   }else if (message.content.toLowerCase().includes("knull")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote kn#ll.')
-   }else if (message.content.toLowerCase().includes("cock")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote c#ck.')
-   }
-   else if (message.content.toLowerCase().includes("anus")){
-     message.delete();
-     message.author.sendMessage(profanity_msg);
-     message.channel.sendMessage(message.author.toString() +' wrote an#s.')
-   }
+
+bot.on('message', (message) =>{
+    let profanity =
+    ["neger",
+    "hora",
+    "fitt",
+    "slyn",
+    "slamp",
+    "bög",
+    "lesb",
+    "svarting",
+    "mongolid",
+    "blatte",
+    "nigger",
+    "fag",
+    "knull",
+    "cock",
+    "anal",
+    "nigga",
+    "kuk",
+    "卐"];
+    if (profanity.some(filter => message.content.toLowerCase().includes(filter))) {
+    message.delete();
+    message.author.sendMessage(profanity_msg);
+    }
+    });
+
 
 bot.on('message', (message) => {
 
-});
 //Commmandos
 if(!message.content.startsWith(prefix)) return;
 if (message.author.bot) return;
@@ -166,15 +120,14 @@ switch(split[0].toLowerCase()) {
         message.channel.sendMessage(bordejag[Math.floor(Math.random() * bordejag.length)] + message.author.toString());
         break;
       case 'embed':
-        message.channel.sendEmbed(new Discord.RichEmbed().addField('Title', 'Desc').setColor(0xffffff));
+        message.channel.sendEmbed(new Discord.RichEmbed().addField('Title', message.author.toS).setColor(0xffffff));
         break;
       case 'rules':
-        message.channel.sendEmbed(new Discord.RichEmbed().addField('Regler:', '**1.** Skicka inget kränkande innehåll, dvs homofobi, nazism, rasism, sexism, och så vidare. \n**2.** Skicka inte pornografiskt innehåll eller liknande. \n**3.** Tjata inte om att få joina Ålskål-kanalen, den är till för oss i Ålskål, moderatorer, och våra vänner. \n**4.** Håll en god ton i chatten, kasta inte skit på varandra, sådant får ni lösa själva. \n**5.** Slutligen, Simon & Jacob bestämmer, oavsett vad. \n\nHoppas ni trivs på servern!').setColor(0x3399FF));
+        message.channel.sendEmbed(new Discord.RichEmbed().addField('Regler:', '**1.** Skicka inget kränkande innehåll, dvs homofobi, nazism, rasism, sexism, och så vidare. \n**2.** Skicka inte pornografiskt innehåll eller liknande. \n**3.** Tjata inte om att få joina Ålskål-kanalen, den är till för oss i Ålskål, moderatorer, och våra vänner. \n**4.** Håll en god ton i chatten, kasta inte skit på varandra, sådant får ni lösa själva. \n**5.** Earrape är insta-ban, det går **INTE** att överklaga. \n**6.** Slutligen, Simon & Jacob bestämmer, oavsett vad. \n\nHoppas ni trivs på servern!').setColor(0x3399FF));
         break;
-    //  case 'profile':
-    //    var profile_content = message.content();
-    //    JSON.write(profile_content, profiles.json)
-    //    break;
+      case 'poke':
+        message.channel.sendMessage(message.content);
+        break;
       default:
       message.channel.sendMessage('```Detta kommando existerar inte.```')
     }
