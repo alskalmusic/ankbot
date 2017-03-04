@@ -1,2 +1,2 @@
 # ankbot
-The bot used on the official Ålskål Discord server.
+A fork of the bot used on the official Ålskål Discord server.
