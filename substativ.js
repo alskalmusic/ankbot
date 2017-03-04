@@ -1359,6 +1359,7 @@ module.exports = [
 	'chiffer',
 	'chiffonjé',
 	'chilen',
+  'chill',
 	'chimär',
 	'chips',
 	'chock',
