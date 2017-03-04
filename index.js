@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = 'TOKEN_HERE'
+const token = 'PUT_YOUR_TOKEN_HERE'
 const prefix ="!";
 
 //var fs = require('fs');
@@ -17,33 +17,12 @@ var link_msg = 'Länkar är ej tillåtna för subs eftersom att folk (Limousinen
 
 console.log('Bot started. Version: ' + bot_version + '\nCopyright © Simon Hedström \n\nAvailable commands: \n!help \n!social \n!anka \n!sub \n!info \n!bordejag')
 
-var words = [
-   'flöjt',
-   'begravning',
-   'fest',
-   'romans',
-   'student',
-   'polis',
-   'gitarr',
-   'kock',
-   'teater',
-   'piano',
-   'disco',
-   'rave',
-   'potatis',
-   'stol',
-   'gamerz',
-   'dansen'
-];
-
 var bordejag = [
    'Ja. ',
    'Nej. '
 ];
 
-bot.on('ready', () => {
-   bot.user.setGame('Skriv !help för hjälp.');
-});
+var words = require('./substativ');
 
 //Welcome member.
 bot.on('guildMemberAdd', (member) => {
@@ -55,8 +34,8 @@ bot.on('guildMemberRemove', (member) => {
    var guild = member.guild;
    guild.defaultChannel.sendEmbed(new Discord.RichEmbed().addField('Hejdå!', member.user.toString() + '\nHoppas du trivdes.').setColor(0xCC0000));
    });
-//Profanity filter.
 
+//Profanity filter.
 bot.on('message', (message) =>{
     let profanity =
     ["neger",
