@@ -17,6 +17,7 @@ console.log('Bot started. Version: ' + bot_version + '\nCopyright © Ålskål \n
 
 var words = require('./substativ');
 
+
 var bordejag = [
     'Ja. ',
     'Nej. '
