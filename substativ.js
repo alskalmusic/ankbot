@@ -5901,6 +5901,7 @@ module.exports = [
 	'optimism',
 	'optimist',
 	'option',
+  'or',
 	'orakel',
 	'ord',
 	'ordalag',
